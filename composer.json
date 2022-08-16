@@ -1,0 +1,25 @@
+{
+    "name": "medicarebd/role",
+    "type": "laravel-module",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bishwajit Adhikary",
+            "email": "bishwajitcadhikary@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Role\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}
