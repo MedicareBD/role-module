@@ -1,4 +1,4 @@
-@extends('layouts.admin.app')
+@extends('core::layouts.admin.app')
 
 @section('title', __('Edit Role'))
 
