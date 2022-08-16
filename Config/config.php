@@ -45,6 +45,7 @@ return [
             'manufacturer-ledger' => 'r',
 
             'medicines' => 'c,r,u,d',
+            'category' => 'c,r,u,d',
 
             'settings' => 'r',
             'backup' => 'c,r,d',
