@@ -46,6 +46,7 @@ return [
 
             'medicines' => 'c,r,u,d',
             'category' => 'c,r,u,d',
+            'units' => 'c,r,u,d',
 
             'settings' => 'r',
             'backup' => 'c,r,d',
