@@ -2,8 +2,8 @@
 
 namespace Modules\Role\Providers;
 
+use App\Models\User;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 
 class RoleServiceProvider extends ServiceProvider
 {
