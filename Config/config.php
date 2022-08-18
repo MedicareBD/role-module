@@ -45,7 +45,7 @@ return [
             'manufacturer-ledger' => 'r',
 
             'medicines' => 'c,r,u,d',
-            'category' => 'c,r,u,d',
+            'categories' => 'c,r,u,d',
             'units' => 'c,r,u,d',
 
             'banks' => 'c,r,u,d',
