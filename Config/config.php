@@ -48,6 +48,8 @@ return [
             'category' => 'c,r,u,d',
             'units' => 'c,r,u,d',
 
+            'banks' => 'c,r,u,d',
+
             'settings' => 'r',
             'backup' => 'c,r,d',
             'backup-setting' => 'r,u',
