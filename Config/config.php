@@ -47,6 +47,8 @@ return [
             'medicines' => 'c,r,u,d',
             'categories' => 'c,r,u,d',
             'units' => 'c,r,u,d',
+            'types' => 'c,r,u,d',
+            'leafs' => 'c,r,u,d',
 
             'banks' => 'c,r,u,d',
 
