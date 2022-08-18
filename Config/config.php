@@ -52,6 +52,9 @@ return [
 
             'banks' => 'c,r,u,d',
 
+            'taxs' => 'c,r,u,d',
+            'taxs-settings' => 'r',
+
             'settings' => 'r',
             'backup' => 'c,r,d',
             'backup-setting' => 'r,u',
