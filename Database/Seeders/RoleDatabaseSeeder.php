@@ -2,8 +2,8 @@
 
 namespace Modules\Role\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -27,25 +27,23 @@ class RoleDatabaseSeeder extends Seeder
             // Create a new role
             $role = Role::firstOrCreate([
                 'name' => $key,
-                'guard_name' => 'web'
+                'guard_name' => 'web',
             ]);
             $permissions = [];
 
-            $this->command->info('Creating Role '. strtoupper($key));
+            $this->command->info('Creating Role '.strtoupper($key));
 
             // Reading role permission modules
             foreach ($modules as $module => $value) {
-
                 foreach (explode(',', $value) as $p => $perm) {
-
                     $permissionValue = $mapPermission->get($perm);
 
                     $permissions[] = Permission::firstOrCreate([
-                        'name' => $module . '-' . $permissionValue,
-                        'guard_name' => 'web'
+                        'name' => $module.'-'.$permissionValue,
+                        'guard_name' => 'web',
                     ])->id;
 
-                    $this->command->info('Creating Permission to '.$permissionValue.' for '. $module);
+                    $this->command->info('Creating Permission to '.$permissionValue.' for '.$module);
                 }
             }
 
@@ -59,7 +57,7 @@ class RoleDatabaseSeeder extends Seeder
                     'name' => ucwords(str_replace('_', ' ', $key)),
                     'email' => str($key)->remove(' ')->lower().'@medicare.com',
                     'password' => bcrypt('password'),
-                    'avatar' => 'https://avatars.dicebear.com/api/adventurer/'.str($key)->slug().'.svg'
+                    'avatar' => 'https://avatars.dicebear.com/api/adventurer/'.str($key)->slug().'.svg',
                 ]);
                 $user->assignRole($role);
             }

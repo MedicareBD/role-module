@@ -3,7 +3,6 @@
 namespace Modules\Role\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Role\Http\Requests\StoreAssignRoleReqeust;
@@ -11,16 +10,16 @@ use Spatie\Permission\Models\Role;
 
 class AssignRoleController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('permission:roles-assign-read')->only('index','search');
+        $this->middleware('permission:roles-assign-read')->only('index', 'search');
         $this->middleware('permission:roles-assign-create')->only('store');
     }
 
     public function index(Request $request)
     {
         $roles = Role::all();
+
         return view('role::assign-role', compact('roles'));
     }
 
@@ -31,7 +30,7 @@ class AssignRoleController extends Controller
 
         return response()->json([
             'message' => __('Role Successfully Assigned'),
-            'redirect' => route('admin.assign-role.index')
+            'redirect' => route('admin.assign-role.index'),
         ]);
     }
 
@@ -39,13 +38,13 @@ class AssignRoleController extends Controller
     {
         $search = $request->get('search');
 
-        if (!is_null($search)){
-            $users = User::orderby('name','asc')
+        if (! is_null($search)) {
+            $users = User::orderby('name', 'asc')
                 ->whereNotIn('name', ['Super Admin'])
-                ->select('id','name as text', 'avatar')
-                ->where('name', 'like', '%' .$search . '%')
+                ->select('id', 'name as text', 'avatar')
+                ->where('name', 'like', '%'.$search.'%')
                 ->paginate(20);
-        }else{
+        } else {
             return response()->json();
         }
 

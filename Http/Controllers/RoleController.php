@@ -2,8 +2,6 @@
 
 namespace Modules\Role\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Role\Http\Requests\StoreRoleRequest;
 use Modules\Role\Http\Requests\UpdateRoleRequest;
@@ -23,8 +21,9 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::with('users')->withCount('users')->get();
+
         return view('role::index', [
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 
@@ -32,19 +31,19 @@ class RoleController extends Controller
     {
         $groups = [];
         foreach (Permission::all() as $index => $permission) {
-            $groups[ucwords(str($permission->name)->remove(['-', 'create','read','update','delete']))][] = $permission;
+            $groups[ucwords(str($permission->name)->remove(['-', 'create', 'read', 'update', 'delete']))][] = $permission;
         }
 
         return view('role::create', [
-            'groups' => $groups
+            'groups' => $groups,
         ]);
     }
 
     public function store(StoreRoleRequest $request)
     {
-        \DB::transaction(function ()use ($request){
+        \DB::transaction(function () use ($request) {
             $role = Role::create([
-                'name' => $request->input('name')
+                'name' => $request->input('name'),
             ]);
 
             $role->permissions()->sync($request->input('permissions'));
@@ -52,7 +51,7 @@ class RoleController extends Controller
 
         return response()->json([
             'message' => __('Role Created Successfully'),
-            'redirect' => route('admin.roles.index')
+            'redirect' => route('admin.roles.index'),
         ]);
     }
 
@@ -66,7 +65,7 @@ class RoleController extends Controller
         $role->load('permissions');
         $groups = [];
         foreach (Permission::all() as $index => $permission) {
-            $groups[ucwords(str($permission->name)->remove(['-', 'create','read','update','delete']))][] = $permission;
+            $groups[ucwords(str($permission->name)->remove(['-', 'create', 'read', 'update', 'delete']))][] = $permission;
         }
 
         return view('role::edit', compact('role', 'groups'));
@@ -75,14 +74,14 @@ class RoleController extends Controller
     public function update(UpdateRoleRequest $request, Role $role)
     {
         $role->update([
-            'name' => $request->input('name')
+            'name' => $request->input('name'),
         ]);
 
         $role->permissions()->sync($request->input('permissions'));
 
         return response()->json([
             'message' => __('Role Update Successfully'),
-            'redirect' => route('admin.roles.index')
+            'redirect' => route('admin.roles.index'),
         ]);
     }
 
@@ -92,7 +91,7 @@ class RoleController extends Controller
 
         return response()->json([
             'message' => __('Role Deleted Successfully'),
-            'redirect' => route('admin.roles.index')
+            'redirect' => route('admin.roles.index'),
         ]);
     }
 }

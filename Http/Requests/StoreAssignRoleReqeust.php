@@ -16,7 +16,7 @@ class StoreAssignRoleReqeust extends FormRequest
         return [
             'user' => ['required', 'exists:users,id'],
             'roles' => ['required', 'array'],
-            'roles.*' => ['required', 'exists:roles,id']
+            'roles.*' => ['required', 'exists:roles,id'],
         ];
     }
 

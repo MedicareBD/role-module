@@ -11,19 +11,19 @@ return [
             'order' => 100,
             'submenu' => [
                 [
-                    'text'      => 'Roles',
-                    'route'     => 'admin.roles.index',
-                    'icon'      => 'fas fa-user-shield',
-                    'can'       => 'roles-read'
+                    'text' => 'Roles',
+                    'route' => 'admin.roles.index',
+                    'icon' => 'fas fa-user-shield',
+                    'can' => 'roles-read',
                 ],
                 [
-                    'text'      => 'Assign Role',
-                    'route'     => 'admin.assign-role.index',
-                    'icon'      => 'fas fa-user-shield',
-                    'can'       => 'roles-assign-read'
+                    'text' => 'Assign Role',
+                    'route' => 'admin.assign-role.index',
+                    'icon' => 'fas fa-user-shield',
+                    'can' => 'roles-assign-read',
                 ],
-            ]
-        ]
+            ],
+        ],
     ],
 
     // For Seeders
@@ -68,19 +68,19 @@ return [
         'Advisor' => [
             'users' => 'c,r,u,d',
             'profile' => 'r,u',
-            'settings' => 'r'
+            'settings' => 'r',
         ],
         'Sales Man' => [
             'profile' => 'r,u',
-            'settings' => 'r'
+            'settings' => 'r',
         ],
         'Customer' => [
             'profile' => 'r,u',
-            'settings' => 'r'
+            'settings' => 'r',
         ],
         'Manufacturer' => [
             'profile' => 'r,u',
-            'settings' => 'r'
+            'settings' => 'r',
         ],
     ],
 
@@ -88,6 +88,6 @@ return [
         'c' => 'create',
         'r' => 'read',
         'u' => 'update',
-        'd' => 'delete'
-    ]
+        'd' => 'delete',
+    ],
 ];
