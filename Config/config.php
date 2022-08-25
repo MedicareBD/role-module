@@ -63,6 +63,7 @@ return [
             'backup-setting' => 'r,u',
             'reset' => 'r,u',
             'restore' => 'r,u',
+            'horizon' => 'r',
         ],
         'Advisor' => [
             'users' => 'c,r,u,d',
